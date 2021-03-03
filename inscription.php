@@ -16,8 +16,9 @@ if (isset($_POST) && !empty($_POST)){
 
 ?>
 
-<h1 class="text-center text-title pt-5">Inscription</h1>
+
 <body class="bg-dark">
+	<h1 class="text-center text-title pt-5">Inscription</h1>
 <div class="row formulaireInscription col-10 col-md-5 col-sm-7 margin-ci">
 <div class="container col-md-9 py-5">
 	<form method="post" class="pt-3">

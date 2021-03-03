@@ -1,47 +1,39 @@
 <?php
 require "header.php";
+$managerUser = new ManagerUser();
+$users = $managerUser->getAll();
 ?>
-<body class="bg-dark">
-    <h1 class="text-center text-title pt-5">Gestion droit d'administration</h1>
-<div class="row formulaireInscription col-11 col-md-7 col-sm-7 margin-ci" id="d1">
-    <div class="col-12 text-left text-danger">
-        <div class="col-12 margin-npadmin">
-            <form action="" method="post" class="text-center">
-                <table class="table table-bordered table-responsive">
-                    <thead>
-                    <tr>
-                        <th>Administrateur</th>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Email</th>
-                        <th>Identifiant</th>
-                    </tr>
-                    </thead>
-                    <tbody id="corp">
-                    <tr>
-                        <td><input type="checkbox" name="cb" value="true" checked></td>
-                        <td>Machine</td>
-                        <td>Jordan</td>
-                        <td>machine.Jordan@hotmail.fr</td>
-                        <td>MrJordan</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="cb" value="false" unchecked></td>
-                        <td>Rude</td>
-                        <td>Pente</td>
-                        <td>Rude.Pente@gmail.com</td>
-                        <td>MmeRude</td>
-                    </tr>
-                    </tbody>
-                </table>
-                </br>
-                <button class="btn btn-outline-warning my-2 my-sm-0 margin-button" type="submit">Ajouter</button>
-            </form>
+<div class="bg-dark text-white">
+    <div class="container">
+        <!--
+        <div class="alerteRienEstSéléctionné">
+                <h2 class="alerteRienEstSéléctionné">Mais espèce de fils de pute séléctionne un truc pd h24 tu casse les couilles personne ne t'aime rend toi service suicide toi petite salope</h2>
+            </div>
+        -->    
+        <h2 class="text-center py-3">Gestion des administrateurs</h2>
+        <div class="row">
+            <div class="col-12">
+                <div class="d-block">
+                    <?php
+                    foreach ($users as $user):
+                    ?>
+                    <div class="border d-flex flex-wrap mb-md-3 mb-5">
+                        <div class="w-100 pl-2">
+                            <h3><?=$user->get_first_name();?> <?=$user->get_last_name();?></h3>
+                            <p><?= $user->get_email(); ?></p>
+                            <?php if($user->isAdmin()): ?>
+                                <a class="float-right pr-3 pb-3 pb-md-0" href="removeAdmin.php?idUser=<?= $user->get_id(); ?>">Retirer Admin</a>
+                            <?php else: ?>
+                                <a class="float-right pr-3 pb-3 pb-md-0" href="addAdmin.php?idUser=<?= $user->get_id(); ?>">Ajouter Admin</a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-</body>
-
 
 <?php
 require "footer.php";

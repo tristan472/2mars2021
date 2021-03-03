@@ -33,8 +33,8 @@ if (isset($_POST, $_FILES) && !empty($_POST) && !empty($_FILES)){
 
 <div class="bg-dark py-5">
     <div class="container">
+        <h1 class="text-center text-title pt-5">Ajouter un produit</h1>
         <div class="éditerProfile">
-            <div class="éditerProfileTitre"><h2 class="text-center">Ajouter un produit</h2></div>
             <div class="row donnéesPersonnelles">
                 <form class="w-100" role="form" action="modifyProfil.php" method="post">
                     <div class="col-12">
